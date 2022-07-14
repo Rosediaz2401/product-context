@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useProductContext } from '../../context/ProductContext'
+import FadeLoader from 'react-spinners/FadeLoader'
 import './productlist.css'
 
 const ProductList = () => {
@@ -14,7 +15,7 @@ const ProductList = () => {
   return (
     <>
       {context.loading
-        ? <h1>Cargando...</h1>
+        ? <FadeLoader color='#000000' loading={context.loading} size={100} />
         : context.producto.filter(producto => {
           if (context.buscador === '') {
             return producto

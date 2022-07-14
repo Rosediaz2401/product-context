@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import FadeLoader from 'react-spinners/FadeLoader'
 import Header from '../Header/Header'
 import axios from 'axios'
 import './productdetail.css'
@@ -33,22 +34,24 @@ const ProductDetail = () => {
   return (
     <>
       <Header />
-      {loading
-        ? <h1>Cargando....</h1>
-        : <div className='product-detail-container'>
-          <div className='product-image-detail'>
-            <img className='image-detail' src={validacionUrl(producto.image) ? producto.image : validacionUrl(producto.images) ? producto.images : producto.images || 'https://cf.geekdo-images.com/camo/cba429883803dadea626df689cdbf3ddc0dc1bba/68747470733a2f2f692e696d6775722e636f6d2f456161485557462e6a7067'} alt='imagen producto' />
-          </div>
-          <div className='product-text-detail'>
-            <h1> {`${producto.product_name} `}</h1>
-            <h3>{`SKU: ${producto.sku} `}</h3>
-            <h3>{`Brand: ${producto.brand} `}</h3>
-            <h3>{`Category: ${producto.category} `}</h3>
-            <h4 className='product-description'>{`Description: ${producto.description} `}</h4>
-            <h2>{`Price: $ ${producto.price} `}</h2>
-            <button className='btn btn-dark'>Buy now</button>
-          </div>
-        </div>}
+      <div className='details-container'>
+        {loading
+          ? <FadeLoader color='#000000' loading={loading} size={100} />
+          : <div className='product-detail-container'>
+            <div className='product-image-detail'>
+              <img className='image-detail' src={validacionUrl(producto.image) ? producto.image : validacionUrl(producto.images) ? producto.images : producto.images || 'https://cf.geekdo-images.com/camo/cba429883803dadea626df689cdbf3ddc0dc1bba/68747470733a2f2f692e696d6775722e636f6d2f456161485557462e6a7067'} alt='imagen producto' />
+            </div>
+            <div className='product-text-detail'>
+              <h1> {`${producto.product_name} `}</h1>
+              <h3>{`SKU: ${producto.sku} `}</h3>
+              <h3>{`Brand: ${producto.brand} `}</h3>
+              <h3>{`Category: ${producto.category} `}</h3>
+              <h4 className='product-description'>{`Description: ${producto.description} `}</h4>
+              <h2>{`Price: $ ${producto.price} `}</h2>
+              <button className='btn btn-dark'>Buy now</button>
+            </div>
+            </div>}
+      </div>
     </>
   )
 }

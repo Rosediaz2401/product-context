@@ -14,8 +14,10 @@ function ProductoProvider (props) {
     setProducto(res.data)
   }
   useEffect(() => {
-    getProductos()
-    setLoading(false)
+    setTimeout(() => {
+      getProductos()
+      setLoading(false)
+    }, [2000])
   }, [])
 
   const value = {

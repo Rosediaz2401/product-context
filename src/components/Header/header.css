@@ -12,12 +12,13 @@
     display: inline !important;
 }
 
-.nav-items a{
+.list-links a{
     color: #fff;
     font-size: 18px;
     text-transform:uppercase;
     text-decoration: none;
     margin: 50px;
+    padding: 20px;
 }
 
 h2{
