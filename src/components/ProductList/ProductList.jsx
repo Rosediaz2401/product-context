@@ -26,8 +26,7 @@ const ProductList = () => {
                 <Link
                   className='btn btn-dark'
                   to={{
-                    pathname: '/product'
-                    context.setSelectedProduct(producto)
+                    pathname: `/${producto._id}`
                   }}
                 >View Details
                 </Link>
