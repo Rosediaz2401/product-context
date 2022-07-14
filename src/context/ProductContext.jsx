@@ -7,7 +7,7 @@ function ProductoProvider (props) {
   const [producto, setProducto] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedProduct, setSelectedProduct] = useState({})
-
+  const [buscador, setBuscador] = useState('')
   const getProductos = async () => {
     const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item/')
     console.log('api', res.data)
@@ -22,7 +22,9 @@ function ProductoProvider (props) {
     producto,
     selectedProduct,
     setSelectedProduct,
-    loading
+    loading,
+    buscador,
+    setBuscador
   }
   return (
     <ProductContext.Provider value={value} {...props} />

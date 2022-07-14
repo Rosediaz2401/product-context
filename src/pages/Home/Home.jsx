@@ -1,16 +1,18 @@
 import ProductList from '../../components/ProductList/ProductList'
 import { ProductoProvider } from '../../context/ProductContext'
+import Header from '../../components/Header/Header'
 import './home.css'
 
 const Home = () => {
   return (
-    <div>
-      <ProductoProvider>
+    <ProductoProvider>
+      <Header />
+      <div>
         <div className='main-container'>
           <ProductList />
         </div>
-      </ProductoProvider>
-    </div>
+      </div>
+    </ProductoProvider>
   )
 }
 

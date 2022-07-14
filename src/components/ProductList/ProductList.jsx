@@ -15,14 +15,21 @@ const ProductList = () => {
     <>
       {context.loading
         ? <h1>Cargando...</h1>
-        : context.producto.map((producto) => (
+        : context.producto.filter(producto => {
+          if (context.buscador === '') {
+            return producto
+          } else if (producto.product_name.toLowerCase().includes(context.buscador)) {
+            return producto
+          }
+          return null
+        }).map((producto) => (
           <div className='app-header' key={producto._id}>
             <div className='child'>
               <div className='card'>
                 <img className='imagen' src={validacionUrl(producto.image) ? producto.image : validacionUrl(producto.images) ? producto.images : producto.images || 'https://cf.geekdo-images.com/camo/cba429883803dadea626df689cdbf3ddc0dc1bba/68747470733a2f2f692e696d6775722e636f6d2f456161485557462e6a7067'} alt='' />
-                <p>{`Price: $ ${producto.price} `}</p>
                 <p> {`${producto.product_name} `}</p>
                 <p>{`Brand: ${producto.brand} `}</p>
+                <p>{`Price: $ ${producto.price} `}</p>
                 <Link
                   className='btn btn-dark'
                   to={{
@@ -34,6 +41,9 @@ const ProductList = () => {
             </div>
           </div>
         ))}
+      {
+      context.currentProducto
+      }
     </>
   )
 }
