@@ -1,0 +1,28 @@
+.product-detail-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border-radius: 5%;
+    transition: 0.3s;
+    text-align: center;
+    margin: 80px;
+}
+.product-image-detail{
+    width: 50%;
+}
+.image-detail{
+    border-radius: 5%;
+    margin: 10px;
+    width: 100%;
+    max-height: 603px;
+}
+.product-text-detail{
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+.product-description{
+    padding: 0px 100px;
+}
