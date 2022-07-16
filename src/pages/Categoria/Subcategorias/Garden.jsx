@@ -32,7 +32,7 @@ const Garden = () => {
   return (
     <>
       <Header />
-      <div>
+      <div className='main-container'>
         {loading
           ? <FadeLoader color='#000000' loading={loading} size={100} />
           : kidscat.map((item) => (
