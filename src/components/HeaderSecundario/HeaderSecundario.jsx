@@ -1,17 +1,35 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import logo from '../../assets/img/logo.png'
-import { useProductContext } from '../../context/ProductContext'
-import './header.css'
 
-const Header = () => {
-  const context = useProductContext()
-  const handleSearch = (e) => {
-    context.setBuscador(e.target.value)
-    console.log(context.buscador)
+const HeaderSecundario = () => {
+  const [producto, setProducto] = useState([])
+  const [buscador, setBuscador] = useState('')
+
+  const getProductos = async () => {
+    const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item/')
+    setProducto(res.data)
   }
+
+  useEffect(() => {
+    getProductos()
+  }, [])
+  const handleSearch = (e) => {
+    setBuscador(e.target.value)
+    console.log(buscador)
+  }
+
   return (
     <>
-
+      {producto.filter((producto) => {
+        if (buscador === '') {
+          return producto
+        } else if (producto.product_name.toLowerCase().includes(buscador)) {
+          return producto
+        }
+        return null
+      })}
       <div className='header-container'>
         <div className='container'>
           <h2>ENVÍO GRATIS en toda la tienda - Entregas de 1 a 3 días hábiles.</h2>
@@ -36,7 +54,7 @@ const Header = () => {
                     <Link to='/'>Home</Link>
                   </li>
                   <li className='nav-items'>
-                    <Link to='/categoria'>Categorias
+                    <Link to='/categorias'>Categorias
                     </Link>
                   </li>
                   <li className='nav-items'>
@@ -52,4 +70,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HeaderSecundario

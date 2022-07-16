@@ -43,7 +43,6 @@ const ProductList = () => {
           </div>
         ))}
       {
-      context.currentProducto
       }
     </>
   )

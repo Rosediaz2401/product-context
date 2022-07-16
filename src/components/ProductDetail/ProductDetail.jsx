@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import FadeLoader from 'react-spinners/FadeLoader'
-import Header from '../Header/Header'
 import axios from 'axios'
 import './productdetail.css'
+import Header from '../Header/Header'
 
 const ProductDetail = () => {
-  const [producto, setProducto] = useState({})
+  const [producto, setProducto] = useState([])
   const [loading, setLoading] = useState(true)
 
   const getProductos = async () => {
