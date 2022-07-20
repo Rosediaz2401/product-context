@@ -120,10 +120,15 @@ h2:hover::after {
         max-width: 1900px;
     }
     }
+@media (max-width: 1400px){
+    .container{
+        max-width: 1350px;
+    }
+    }
 
-/* @media (max-width: 1400px){
+@media (min-width: 1400px){
 .container{
-    width: 100%;
+    max-width: 1580px;
 }
 }
 
@@ -137,7 +142,7 @@ h2:hover::after {
 .container {
     width: 100%;
 }
-} */
+}
 
 
 
