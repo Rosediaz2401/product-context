@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import FadeLoader from 'react-spinners/FadeLoader'
 import axios from 'axios'
@@ -31,6 +31,8 @@ const ProductDetail = () => {
     return (url.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gmi) !== null)
   }
   const { id } = useParams()
+  const navigate = useNavigate()
+
   return (
     <>
       <Header />
@@ -48,9 +50,18 @@ const ProductDetail = () => {
               <h3>{`Category: ${producto.category} `}</h3>
               <h4 className='product-description'>{`Description: ${producto.description} `}</h4>
               <h2>{`Price: $ ${producto.price} `}</h2>
-              <button className='btn btn-dark'>Buy now</button>
+              <div>
+                <button className='btn btn-dark boton-pdp'>Buy now</button>
+                <button
+                  className='btn btn-dark boton-pdp'
+                  onClick={() => {
+                    navigate(-1)
+                  }}
+                >Back
+                </button>
+              </div>
             </div>
-            </div>}
+          </div>}
       </div>
     </>
   )

@@ -7,6 +7,14 @@
     height: 52px;
     width: 100%;
 }
+.form-text{
+    text-align: center;  
+  }
+  .logo-login{
+    border-radius: 50%;
+    height: auto;
+   text-align: center;
+   }
 
 .navbar {
     display: inline !important;
@@ -107,8 +115,13 @@ h2:hover::after {
     border-radius: 10px;
     font-weight: bold;
 }
+@media (min-width: 1800px){
+    .container {
+        max-width: 1900px;
+    }
+    }
 
-@media (max-width: 1400px){
+/* @media (max-width: 1400px){
 .container{
     width: 100%;
 }
@@ -124,7 +137,7 @@ h2:hover::after {
 .container {
     width: 100%;
 }
-}
+} */
 
 
 
