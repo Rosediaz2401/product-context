@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Header from '../../../components/Header/Header'
+// import Header from '../../../components/Header/Header'
 import FadeLoader from 'react-spinners/FadeLoader'
 
 const Books = () => {
@@ -31,7 +31,7 @@ const Books = () => {
   const { books } = useParams()
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className='main-container'>
         {loading
           ? <FadeLoader color='#000000' loading={loading} size={100} />

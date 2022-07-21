@@ -50,7 +50,8 @@ const Signup = () => {
   })
 
   return (
-    <><Header />
+    <>
+      <Header />
       <main className='form-signin w-100 m-auto'>
         <div className='main-container'>
           <form className='form-text' onSubmit={handleSubmit}>

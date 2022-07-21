@@ -1,4 +1,4 @@
-.container{
+.first-header{
     background: linear-gradient(#29b6f6 , #64ffda);
     justify-content: center;
     display: flex;
@@ -16,9 +16,9 @@
    text-align: center;
    }
 
-.navbar {
+/* .navbar {
     display: inline !important;
-}
+} */
 
 .list-links a{
     color: #fff;
@@ -114,34 +114,6 @@ h2:hover::after {
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
-}
-@media (min-width: 1800px){
-    .container {
-        max-width: 1900px;
-    }
-    }
-@media (max-width: 1400px){
-    .container{
-        max-width: 1350px;
-    }
-    }
-
-@media (min-width: 1400px){
-.container{
-    max-width: 1580px;
-}
-}
-
-@media (max-width: 768px){
-.container {
-    width: 100%;
-}
-}
-
-@media (max-width: 480px){
-.container {
-    width: 100%;
-}
 }
 
 
