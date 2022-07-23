@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useProductContext } from '../../context/ProductContext'
 import FadeLoader from 'react-spinners/FadeLoader'
 import './productlist.css'
+import Paginacion from '../Paginacion/Paginacion'
 
 const ProductList = () => {
   const context = useProductContext()
@@ -45,23 +46,11 @@ const ProductList = () => {
             </div>
           ))}
       </div>
-      <div>
-        <nav>
-          {
-        context.paginacion
-          ? <ul className='pagination'>
-            {context.pageNumbers.map(number => (
-              <li key={number} className='page-item'>
-                <Link to='!#' className='page-link'>
-                  {number}
-                </Link>
-              </li>
-            ))}
-            </ul>
-          : null
-        }
-        </nav>
-      </div>
+      <Paginacion
+        productosPerPage={context.productosPerPage}
+        totalProductos={context.producto.length}
+        paginate={context.paginate}
+      />
     </>
   )
 }

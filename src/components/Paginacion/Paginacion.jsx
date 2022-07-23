@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom'
-
-const Paginacion = ({ productosPerPage, totalProductos }) => {
+const Paginacion = ({ productosPerPage, totalProductos, paginate }) => {
   const pageNumbers = []
 
   for (let i = 1; i <= Math.ceil(totalProductos / productosPerPage); i++) {
-    console.log(pageNumbers)
     pageNumbers.push(i)
   }
   return (
@@ -12,9 +9,9 @@ const Paginacion = ({ productosPerPage, totalProductos }) => {
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <Link to='!#' className='page-link'>
+            <a onClick={() => paginate(number)} className='page-link'>
               {number}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

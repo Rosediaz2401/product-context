@@ -2,15 +2,15 @@ import { createContext, useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 
 const ProductContext = createContext()
+
 function ProductoProvider (props) {
   const [producto, setProducto] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedProduct, setSelectedProduct] = useState({})
   const [buscador, setBuscador] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
-  const [productosPerPage, setProductosPerPage] = useState(20)
-  const [pageNumbers] = useState([])
-  const [totalProductos] = useState(502)
+  // eslint-disable-next-line no-unused-vars
+  const [productosPerPage] = useState(40)
 
   const getProductos = async () => {
     const res = await axios.get('https://ecomerce-master.herokuapp.com/api/v1/item/')
@@ -21,22 +21,15 @@ function ProductoProvider (props) {
     setTimeout(() => {
       getProductos()
       setLoading(false)
-      totalProductos(totalProductos)
     }, [2000])
   }, [])
 
-  const indexOfLastPost = currentPage * productosPerPage
-  const indexOfFirstPost = indexOfLastPost - productosPerPage
-  const currentPost = producto.slice(indexOfFirstPost, indexOfLastPost)
+  const indexOfLastPage = currentPage * productosPerPage
+  const indexOfFirstPage = indexOfLastPage - productosPerPage
+  const currentPost = producto.slice(indexOfFirstPage, indexOfLastPage)
 
-  const Paginacion = (productosPerPage, totalProductos) => {
-    const pageNumbers = []
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-    for (let i = 1; i <= Math.ceil(totalProductos / productosPerPage); i++) {
-      console.log('hola')
-      pageNumbers.push(i)
-    }
-  }
   const value = {
     producto,
     selectedProduct,
@@ -46,8 +39,7 @@ function ProductoProvider (props) {
     setBuscador,
     currentPost,
     productosPerPage,
-    Paginacion,
-    pageNumbers
+    paginate
   }
   return (
     <ProductContext.Provider value={value} {...props} />
