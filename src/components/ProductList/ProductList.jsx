@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useProductContext } from '../../context/ProductContext'
 import FadeLoader from 'react-spinners/FadeLoader'
-import Paginacion from '../Paginacion/Paginacion'
 import './productlist.css'
 
 const ProductList = () => {
@@ -13,6 +12,7 @@ const ProductList = () => {
     // eslint-disable-next-line no-useless-escape
     return (url.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gmi) !== null)
   }
+
   return (
     <>
       <div className='main-container'>
@@ -44,7 +44,23 @@ const ProductList = () => {
               </div>
             </div>
           ))}
-        <Paginacion productosPerPage={context.productosPerPage} totalProductos={context.producto.lenght} />
+      </div>
+      <div>
+        <nav>
+          {
+        context.paginacion
+          ? <ul className='pagination'>
+            {context.pageNumbers.map(number => (
+              <li key={number} className='page-item'>
+                <Link to='!#' className='page-link'>
+                  {number}
+                </Link>
+              </li>
+            ))}
+            </ul>
+          : null
+        }
+        </nav>
       </div>
     </>
   )
