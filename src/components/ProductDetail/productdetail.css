@@ -11,16 +11,16 @@
     border-radius: 5%;
     transition: 0.3s;
     text-align: center;
-    margin:20px 80px;
+    margin:20px 250px;
 }
 .product-image-detail{
-    width: 50%;
+    width: 40%;
 }
 .image-detail{
     border-radius: 5%;
     margin: 10px;
-    width: 100%;
-    max-height: 603px;
+    max-width: 430px;
+    max-height: 430px;
 }
 .product-text-detail{
     width: 50%;

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useProductContext } from '../../context/ProductContext'
 import FadeLoader from 'react-spinners/FadeLoader'
+import Paginacion from '../Paginacion/Paginacion'
 import './productlist.css'
 
 const ProductList = () => {
@@ -17,7 +18,7 @@ const ProductList = () => {
       <div className='main-container'>
         {context.loading
           ? <FadeLoader color='#000000' loading={context.loading} size={100} />
-          : context.producto.filter(producto => {
+          : context.currentPost.filter(producto => {
             if (context.buscador === '') {
               return producto
             } else if (producto.product_name.toLowerCase().includes(context.buscador)) {
@@ -42,10 +43,8 @@ const ProductList = () => {
                 </div>
               </div>
             </div>
-
           ))}
-        {
-      }
+        <Paginacion productosPerPage={context.productosPerPage} totalProductos={context.producto.lenght} />
       </div>
     </>
   )
